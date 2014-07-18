@@ -1,0 +1,543 @@
+@import "variables";
+@import "../../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap.scss";
+
+/**********************************\
+
+  $_Mixins
+
+\**********************************/
+
+@function em($px, $base: $font-size-base) {
+  @return ($px / $base) * 1em;
+}
+
+/**********************************\
+
+  $_General-Styles
+
+\**********************************/
+
+// make this demo look better
+.Main-Content {
+  padding: 15px;
+  @media screen and (min-width: $screen-sm) {
+    padding: 0 0 300px;
+  }
+}
+
+// specifically for SVG's
+.icon {
+  display: block;
+}
+
+hr {
+  border-color: $gray-dark;
+  margin: 0 0 22px;
+}
+
+// this could be abstracted into a class if there were enough differences in H2 tags
+h2 {
+  @media screen and (min-width: $screen-sm) {
+    font-size: 36px;
+  }
+  font-weight: bold;
+  line-height: 34px;
+  color: #fff;
+}
+
+// style leading text
+.Lead {
+  @media screen and (min-width: $screen-sm) {
+    padding: 60px 0 41px;
+  }
+  padding: 0 0 41px;
+  margin: 0;
+  border-bottom: 4px solid #282828;
+  mark {
+    background: none;
+    color: $brand-primary;
+  }
+}
+
+// handle headings throughout site
+.Heading {
+  .title {
+    display: inline-block;
+    font-weight: bold;
+    color: $gray;
+    margin: 30px 12px 22px 0;
+    @media screen and (min-width: $screen-sm) {
+      margin: 68px 12px 22px 0;
+    }
+  }
+
+}
+
+// make posts more legible on smaller screens
+@media screen and (max-width: $screen-sm) {
+  .post {
+    margin-bottom: 30px;
+  }
+}
+
+/**********************************\
+
+  $_Logo
+
+\**********************************/
+
+.logo {
+  display: block;
+  padding: 18px 10px;
+  .icon {
+    width: 88px;
+    height: 26px;
+    fill: $gray;
+    &:hover {
+      fill: $brand-primary;
+    }
+  }
+}
+
+/**********************************\
+
+  $_Navigation
+
+\**********************************/
+
+.navbar {
+  position: relative;
+  @media screen and (min-width: $screen-sm) {
+    position: absolute;
+  }
+  width: 100%;
+  z-index: 999;
+  border: none;
+  .container {
+    position: relative;
+  }
+}
+
+// transparent BG for IE8
+.navbar-default {
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#99000000, endColorstr=#99000000)";
+}
+
+.navbar-header {
+  margin-right: 28px;
+}
+
+.navbar-collapse.in {
+  overflow-y: visible;
+}
+
+.navbar-nav > li > a {
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-weight: bold;
+
+  @media screen and (min-width: $screen-sm) {
+    padding-top: 30px;
+  }
+}
+
+/**********************************\
+
+  $_Tweet-Module
+
+\**********************************/
+
+.Tweet-Tweet {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 8px;
+  background: $gray-light;
+  color: $brand-accent;
+
+  @media screen and (min-width: $screen-sm) {
+    position: absolute;
+    width: 200px;
+    margin-bottom: 0;
+  }
+  
+  &:hover {
+    .icon {
+      fill: darken($brand-accent, 20%);
+    }
+    .text {
+      color: darken($brand-accent, 20%);
+    }
+    .toggle {
+      background: $brand-primary-dark;
+    }
+  }
+
+  .icon {
+    float: left;
+    width: 22px;
+    height: 20px;
+    margin: 10px 10px 10px 20px;
+    fill: $brand-accent;
+    cursor: pointer;
+  }
+
+  .text {
+    float: left;
+    line-height: 40px;
+    cursor: pointer;
+  }
+
+  .toggle {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 30px;
+    text-align: center;
+    background: $brand-primary;
+    color: #fff;
+    cursor: pointer;
+
+    // annoying when text gets selected and you're clicking a button
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+
+    // setup "+" & "-" toggle, could be animated later
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: #fff;
+    }
+
+    &:before {
+      width: 4px;
+      height: 40%;
+      margin-top: -20%;
+      margin-left: -2px;
+    }
+
+    &:after {
+      width: 40%;
+      height: 4px;
+      margin-top: -2px;
+      margin-left: -20%;
+    }
+  }
+
+  iframe {
+    visibility: hidden; // acted weird with display none
+    float: right;
+    margin: 10px 58px 0 0;
+  }
+
+  .tweets {
+    display: none;
+    padding: 30px 20px 12px;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 33px;
+    li:not(:last-child) {
+      margin-bottom: 26px;
+    }
+  }
+
+  .read-more {
+    font-size: 16px;
+  }
+
+  &.is-expanded {
+    @media screen and (min-width: $screen-sm) {
+      width: 460px;
+    }
+    .toggle {
+      background: $brand-primary-dark;
+      &:before {
+        display: none;
+      }
+    }
+    iframe {
+      visibility: visible;
+    }
+    .tweets {
+      position: absolute;
+      top: 40px;
+      display: block;
+      width: 100%;
+      background: $brand-primary;
+      color: #fff;
+
+      @media screen and (min-width: $screen-sm) {
+        height: 590px;
+        overflow: auto;
+      }
+
+      // custom scrolbar
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+      &::-webkit-scrollbar-track {
+        border-radius: 10px;
+        background: rgba(0,0,0,0.1);
+      }
+      &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        background: $brand-primary-dark; 
+      }
+
+      a {
+          color: $brand-primary-dark;
+      }
+      small {
+        display: block;
+        margin-top: -10px;
+        font-size: 16px;
+        color: #e4e4e4;
+      }
+    }
+  }
+}
+
+/**********************************\
+
+  $_Carousel
+
+\**********************************/
+
+.carousel-indicators {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+
+  @media screen and (min-width: $screen-sm) {
+    // was causing z-index issue with carousel controls, so let's make it smaller
+    position: absolute;
+    left: 60%;
+    bottom: 10px;
+    width: 40%;
+    margin: 0 0 0 -30%;
+  }
+
+  li {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); // to show better on white backgrounds
+
+    @media screen and (max-width: $screen-sm) {
+      width: 22px;
+      height: 22px;
+      margin: 8px;
+    }
+
+    &:not(.active) {
+      background: #fff;
+      &:hover {
+        background: $gray;
+      }
+    }
+  }
+  // let's make a better experience since we'd be on the active state
+  .active {
+    cursor: default;
+    
+    @media screen and (max-width: $screen-sm) {
+      width: 22px;
+      height: 22px;
+      margin: 8px;
+    }
+  }
+}
+
+.carousel .item {
+  width: 100%; /*slider width*/
+  img {
+    width: 100%; /*img width*/
+  }
+}
+
+.carousel-controls {
+  display: none;
+  @media screen and (min-width: $screen-sm) {
+    display: block;
+    position: relative;
+    margin-top: -54px;
+    a {
+      box-sizing: content-box;
+      display: inline-block;
+      width: 17px;
+      height: 29px;
+      padding: 10px 16px;
+      &:hover .icon {
+        stroke: $gray-dark;
+      }
+      &:active .icon {
+        stroke: $brand-primary;
+      }
+    }
+    .icon {
+      width: 17px;
+      height: 29px;
+      pointer-events: none;
+      stroke: $gray;
+    }
+  }
+}
+
+.Carousel-Caption {
+  position: relative;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: auto;
+  text-align: center;
+  padding: 16px;
+  color: $gray;
+
+  // change for small and up screens
+  @media screen and (min-width: $screen-sm) {
+    position: absolute;
+    top: 20%;
+    left: 18%;
+    width: 335px;
+    height: 175px;
+    padding: 0;
+    text-align: left;
+  }
+
+  // bigger text for bigger displays
+  @media screen and (min-width: $screen-lg) {
+    font-size: 18px;
+  }
+
+  .title {
+    width: 100%;
+    margin-top: 0;
+    font-family: "Trade Gothic Pro Bold", helvetica, arial, sans-serif;
+    text-transform: uppercase;
+    font-size: 26px;
+    line-height: 28px;
+    color: #d6141b;
+
+    @media screen and (min-width: $screen-sm) {
+      font-size: em(42px);
+      letter-spacing: -2px;
+      line-height: em(14px);
+    }
+  }
+
+  .content {
+    width: 100%;
+    font-size: 13px;
+    line-height: em(16px);
+  }
+
+  // move link to new block on smaller screens
+  @media screen and (max-width: $screen-sm) {
+    .link {
+      display: block;
+      margin-top: 8px;
+    }
+  }
+}
+
+/**********************************\
+
+  $_Carousel-Items
+
+\**********************************/
+
+@media screen and (min-width: $screen-sm) {
+
+  // first slide
+  .item-1 {
+    .Carousel-Caption {
+      top: 35%;
+      left: 18%;
+      width: 300px;
+    }
+  }
+
+  // second slide
+  .item-2 {
+    .Carousel-Caption {
+      top: 20%;
+      left: 50%;
+      width: 325px;
+    }
+  }
+
+  // third slide
+  .item-3 {
+    .title, a {
+      color: #f48e31;
+    }
+  }
+
+  // fourth slide
+  .item-4 {
+    .title, a {
+      color: #2664b9;
+    }
+  }
+
+}
+
+/**********************************\
+
+  $_Featured-Work
+
+\**********************************/
+
+.Featured-Work {
+  .post {
+    padding: 0 10px;
+  }
+  .title {
+    font-size: 18px;
+    color: #fff;
+    margin: 20px 0 6px;
+    mark {
+      background: none;
+      color: $brand-accent;
+    }
+  }
+  .content {
+    font-weight: bold;
+    color: $gray;
+  }
+  img {
+    width: 100%;
+  }
+}
+
+/**********************************\
+
+  $_Wire-News
+
+\**********************************/
+
+.Wire-News {
+  a {
+    text-decoration: none;
+    &:hover .title {
+      color: $brand-accent;
+    }
+  }
+  .title {
+    margin: 0 0 5px;
+  }
+  .date {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #ccc;
+  }
+}

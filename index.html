@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A test site to show the wonderful people of ENVOY my skillset :)">
+
+    <title>ENVOY Code Test</title>
+
+    <!-- Main Stylesheet -->
+    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
+
+    <!-- IE8 support for HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="assets/js/html5shiv.js"></script>
+        <script src="assets/js/respond.js"></script>
+    <![endif]-->
+
+    <!-- Font -->
+    <script type="text/javascript">
+        (function() {
+            var path = '//easy.myfonts.net/v2/js?sid=135028(font-family=Trade+Gothic)&sid=218102(font-family=Trade+Gothic+Pro+Light)&sid=218103(font-family=Trade+Gothic+Pro+Roman)&sid=218104(font-family=Trade+Gothic+Pro+Bold)&key=PO1LpsHzcs',
+                protocol = ('https:' == document.location.protocol ? 'https:' : 'http:'),
+                trial = document.createElement('script');
+            trial.type = 'text/javascript';
+            trial.async = true;
+            trial.src = protocol + path;
+            var head = document.getElementsByTagName("head")[0];
+            head.appendChild(trial);
+        })();
+    </script>
+</head>
+<body>
+
+<!-- Import all SVG icons (would probably use as an include in a real world example) -->
+<svg style="display:none"><symbol viewBox="0 0 18.695 30.321" id="arrow-left"><title>arrow-left</title> <polyline style="fill:none;stroke-width:5;stroke-linecap:square;stroke-miterlimit:10;" points="15.16,3.535 
+    3.535,15.16 15.16,26.786 "/> </symbol><symbol viewBox="0 0 18.695 30.32" id="arrow-right"><title>arrow-right</title> <polyline style="fill:none;stroke-width:5;stroke-linecap:square;stroke-miterlimit:10;" points="3.535,26.785 
+    15.16,15.16 3.535,3.535 "/> </symbol><symbol viewBox="3.759 1.919 86.215 25.618" id="logo-envoy"><title>logo-envoy</title> <g> <polygon points="80.034,27.538 80.034,16.641 74.738,1.919 79.825,1.919 82.398,9.067 84.901,1.919 89.974,1.919 84.822,16.629 
+        84.822,27.538   "/> <polygon points="3.759,27.538 3.759,1.932 16.873,1.932 16.873,6.721 8.547,6.721 8.547,12.341 14.271,12.341 14.271,17.129 
+        8.547,17.129 8.547,22.749 16.873,22.749 16.873,27.538   "/> <polygon points="45.133,27.538 40.199,1.919 45.074,1.919 47.611,15.051 50.145,1.919 55.021,1.919 50.087,27.538  "/> <path d="M65.097,27.538c-4.045,0-7.338-3.291-7.338-7.338V9.27c0-4.045,3.293-7.338,7.338-7.338c4.046,0,7.338,3.293,7.338,7.338
+        V20.2C72.435,24.247,69.143,27.538,65.097,27.538L65.097,27.538z M65.097,6.721c-1.406,0-2.55,1.144-2.55,2.549V20.2
+        c0,1.406,1.144,2.549,2.55,2.549c1.407,0,2.551-1.143,2.551-2.549V9.27C67.648,7.865,66.504,6.721,65.097,6.721L65.097,6.721z"/> <polygon points="31.338,27.538 26.255,14.805 26.255,27.538 21.468,27.538 21.468,1.932 26.272,1.932 31.355,14.666 31.355,1.932 
+        36.144,1.932 36.144,27.538  "/> </g> </symbol><symbol viewBox="0 0 66.809 54.295" id="logo-twitter"><title>logo-twitter</title> <path d="M66.809,6.427c-2.458,1.09-5.099,1.827-7.872,2.159c2.83-1.696,5.004-4.383,6.026-7.583
+    c-2.647,1.571-5.581,2.711-8.703,3.326C53.759,1.665,50.197,0,46.255,0c-7.57,0-13.708,6.137-13.708,13.707
+    c0,1.075,0.121,2.121,0.355,3.124C21.511,16.259,11.412,10.802,4.651,2.509C3.471,4.534,2.795,6.888,2.795,9.4
+    c0,4.755,2.42,8.951,6.098,11.409c-2.247-0.071-4.36-0.688-6.208-1.714c-0.001,0.058-0.001,0.115-0.001,0.172
+    c0,6.642,4.725,12.181,10.996,13.441c-1.15,0.312-2.361,0.48-3.611,0.48c-0.883,0-1.742-0.086-2.579-0.246
+    c1.744,5.445,6.806,9.408,12.804,9.52c-4.691,3.676-10.601,5.867-17.023,5.867c-1.106,0-2.197-0.065-3.27-0.191
+    c6.066,3.889,13.271,6.158,21.011,6.158c25.212,0,38.999-20.887,38.999-39c0-0.594-0.014-1.185-0.04-1.773
+    C62.648,11.59,64.972,9.176,66.809,6.427z"/> </symbol></svg>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            
+            <!-- Logo & toggle -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="logo" href="#page-top">
+                    <svg class="icon">
+                        <use xlink:href="#logo-envoy"></use>
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Collect all contetnt that will be toggled -->
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Work</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Ventures</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+
+                <!-- Tweet Tweet Module -->
+                <div class="Tweet-Tweet clearfix">
+                    <svg class="icon">
+                        <use xlink:href="#logo-twitter"></use>
+                    </svg>
+                    <span class="text">Tweet. Tweet.</span>
+                    <a href="https://twitter.com/weareenvoy" class="twitter-follow-button" data-show-count="false" data-lang="en">Follow @weareenvoy</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                    <span class="toggle"></span>
+                    <ul class="tweets list-unstyled">
+                        <li>
+                            <p>Can’t wait for the launch of the Envoy Website. <a href="#">instagr.am/p/N8d7E/</a> Check our latest work.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>ooVoo tabs Envoy as new digital agency.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>Check out our latest work for <a href="#">@promax</a></p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>Sneak peek our new office. <a href="#">but.ly/zH3UnD</a> Drop in on us.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>Can’t wait for the launch of the Envoy Website. <a href="#">instagr.am/p/N8d7E/</a> Check our latest work.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>ooVoo tabs Envoy as new digital agency.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>Check out our latest work for <a href="#">@promax</a></p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <p>Sneak peek our new office. <a href="#">but.ly/zH3UnD</a> Drop in on us.</p>
+                            <small>about an hour ago via twitter</small>
+                        </li>
+                        <li>
+                            <a href="#" class="read-more">Read More</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div> <!-- end navbar content -->
+        </div> <!-- end container -->
+    </nav>
+
+    <!-- Carousel -->
+    <section id="carousel" class="carousel slide" ><!-- data-ride="carousel"> -->
+        <div class="carousel-inner">
+            <div class="item item-1 active">
+                <img src="assets/img/hero/django.jpg">
+                <div class="Carousel-Caption">
+                    <h1 class="title">The iPhone Unchained.</h1>
+                    <div class="content">
+                        <p>Tarantino’s outrageous film Djano Unchained needed an equally in your face mobile experience. Bloody good awesomeness ensued. <a href="#" class="link">View Project</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-2">
+                <img src="assets/img/hero/vizio.jpg">
+                <div class="Carousel-Caption">
+                    <h1 class="title">Say hello to the future of Vizio.</h1>
+                    <div class="content">
+                        <p>When Vizio needed to pull the wrap off its new family of PCs they called on Envoy to conceptualize, direct and produce a series of short product films. <a href="#" class="link">View Project</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-3">
+                <img src="assets/img/hero/escape.jpg">
+                <div class="Carousel-Caption">
+                    <h1 class="title">Helping Earth's greatest secrects break out.</h1>
+                    <div class="content">
+                        <p>Activate rocket boots! We created a series of out of this world mobile apps and games to introduce the hilarious animated film Escape From Planet Earth. <a href="#" class="link">View Project</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="item item-4">
+                <img src="assets/img/hero/ultra.jpg">
+                <div class="Carousel-Caption">
+                    <h1 class="title">World meet Ultra. Ultra meet world.</h1>
+                    <div class="content">
+                        <p>Asked to launch T-Mobile’s new internationally-minded brand, Ultra Mobile, we created a campaign that’s creativity knows no borders. <a href="#" class="link">View Project</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+            <li data-target="#carousel" data-slide-to="3"></li>
+        </ol>
+
+        <div class="carousel-controls container">
+            <a href="#carousel" class="pull-right" role="button" data-slide="next">
+                <svg class="icon">
+                    <use xlink:href="#arrow-right"></use>
+                </svg>
+            </a>
+            <a href="#carousel" class="pull-right" role="button" data-slide="prev">
+                <svg class="icon">
+                    <use xlink:href="#arrow-left"></use>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="Main-Content container">
+        <h2 class="Lead">An independent full service creative agency helping brave brands build businesses and be heard in a world full of noise. <mark>We are Envoy.</mark></h2>
+
+        <!-- Featured Work -->
+        <div class="Heading">
+            <h3 class="title">Featured Work</h3>
+            <a href="#" class="link">View All Work</a>
+            <hr>
+        </div>
+        <div class="Featured-Work row">
+            <div class="post col-sm-4">
+                <img src="assets/img/boost-mobile.jpg" alt="Boost Mobile Rebrand">
+                <h4 class="title">Boost Mobile <mark>Rebrand</mark></h4>
+                <p class="content">Boost Mobile recognized the need to elevate and refresh its brand to speak to a broader audience. The result was an evolved logo, ...</p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="post col-sm-4">
+                <img src="assets/img/pear-sports.jpg" alt="Pear Sports Training Portal">
+                <h4 class="title">Pear Sports <mark>Training Portal</mark></h4>
+                <p class="content">Pear Sports revolutionary training systems and fitness apps were getting lost in a crowded marketplace. Envoy rebuilt the story and ... </p>
+                <a href="#">View Project</a>
+            </div>
+            <div class="post col-sm-4">
+                <img src="assets/img/511.jpg" alt="5.11 Ultimate Training Experience">
+                <h4 class="title">5.11 <mark>Ultimate Training Experience</mark></h4>
+                <p class="content">5.11, the industry leader in tactical gear turned to Envoy to bring their “Ultimate Training Challenge” to life in the digital space ...</p>
+                <a href="#">View Project</a>
+            </div>
+        </div>
+
+        <!-- Wire News -->
+        <div class="Heading">
+            <h3 class="title">Wire</h3>
+            <a href="#" class="link">View All News</a>
+            <hr>
+        </div>
+        <div class="Wire-News row">
+            <div class="post col-sm-4">
+                <a href="#">
+                    <h2 class="title">The Weinstein Co Lets Envoy Loose on Sin City 2</h2>
+                    <time datetime="2013-05-01" class="date">May 1, 2013</time>
+                    Read More
+                </a>
+            </div>
+            <div class="post col-sm-4">
+                <a href="#">
+                    <h2 class="title">5.11 Taps Envoy as New Digital Agency</h2>
+                    <time datetime="2013-05-01" class="date">May 1, 2013</time>
+                    Read More
+                </a>
+            </div>
+            <div class="post col-sm-4">
+                <a href="#">
+                    <h2 class="title">Pear Breaks Ground on New App</h2>
+                    <time datetime="2013-05-01" class="date">May 1, 2013</time>
+                    Read More
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/built/app.min.js"></script>
+    <script src="http://localhost:35729/livereload.js"></script>
+
+</body>
+</html>
